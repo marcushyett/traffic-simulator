@@ -43,10 +43,10 @@ export const RoadPieces = {
 // Get connections for a road end based on direction
 export function getRoadEndConnections(direction) {
     return {
-        north: direction === 'south',
-        south: direction === 'north',
-        east: direction === 'west',
-        west: direction === 'east'
+        north: direction === 'north',
+        south: direction === 'south',
+        east: direction === 'east',
+        west: direction === 'west'
     };
 }
 
