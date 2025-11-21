@@ -1,0 +1,169 @@
+/* Root Variables */
+:root {
+    --bg-color: #ffffff;
+    --fg-color: #000000;
+    --grid-color: #cccccc;
+    --road-color: #000000;
+    --selected-color: #666666;
+    --disabled-color: #999999;
+}
+
+[data-theme="dark"] {
+    --bg-color: #000000;
+    --fg-color: #ffffff;
+    --grid-color: #333333;
+    --road-color: #ffffff;
+    --selected-color: #aaaaaa;
+    --disabled-color: #666666;
+}
+
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Courier New', monospace;
+    background-color: var(--bg-color);
+    color: var(--fg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+#game-container {
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 2px solid var(--fg-color);
+}
+
+h1 {
+    font-size: 2rem;
+    letter-spacing: 0.2em;
+}
+
+#controls {
+    display: flex;
+    gap: 10px;
+}
+
+button {
+    font-family: 'Courier New', monospace;
+    font-size: 1.2rem;
+    padding: 8px 16px;
+    background-color: var(--bg-color);
+    color: var(--fg-color);
+    border: 2px solid var(--fg-color);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+button:hover:not(:disabled) {
+    background-color: var(--fg-color);
+    color: var(--bg-color);
+}
+
+button:disabled {
+    border-color: var(--disabled-color);
+    color: var(--disabled-color);
+    cursor: not-allowed;
+}
+
+/* Game Info */
+#game-info {
+    padding: 10px;
+    border: 2px solid var(--fg-color);
+}
+
+.info-panel {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+    font-size: 1rem;
+}
+
+.info-panel span {
+    white-space: nowrap;
+}
+
+/* Piece Selector */
+#piece-selector {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 15px;
+    border: 2px solid var(--fg-color);
+    flex-wrap: wrap;
+}
+
+.piece-item {
+    font-size: 1.5rem;
+    padding: 10px 15px;
+    border: 2px solid var(--fg-color);
+    cursor: pointer;
+    min-width: 50px;
+    text-align: center;
+    transition: all 0.2s;
+}
+
+.piece-item:hover {
+    background-color: var(--selected-color);
+}
+
+.piece-item.selected {
+    background-color: var(--fg-color);
+    color: var(--bg-color);
+}
+
+/* Canvas */
+#game-canvas {
+    border: 2px solid var(--fg-color);
+    display: block;
+    cursor: crosshair;
+    background-color: var(--bg-color);
+}
+
+/* Instructions */
+#instructions {
+    text-align: center;
+    padding: 10px;
+    border: 2px solid var(--fg-color);
+    font-size: 0.9rem;
+}
+
+#instructions p {
+    line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+    
+    .info-panel {
+        font-size: 0.9rem;
+    }
+    
+    .piece-item {
+        font-size: 1.2rem;
+        padding: 8px 12px;
+    }
+}
