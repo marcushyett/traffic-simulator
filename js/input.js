@@ -1,4 +1,6 @@
 // Input Handler - Mouse and keyboard input
+import { RoadPieces } from './roadPieces.js';
+
 export class InputHandler {
     constructor(canvas, grid, onPiecePlaced) {
         this.canvas = canvas;
@@ -23,8 +25,11 @@ export class InputHandler {
 
     handleClick(event) {
         const rect = this.canvas.getBoundingClientRect();
-        const x = event.clientX - rect.left;
-        const y = event.clientY - rect.top;
+        // Account for canvas border and any scaling
+        const scaleX = this.canvas.width / rect.width;
+        const scaleY = this.canvas.height / rect.height;
+        const x = (event.clientX - rect.left) * scaleX;
+        const y = (event.clientY - rect.top) * scaleY;
 
         const gridX = Math.floor(x / this.grid.cellSize);
         const gridY = Math.floor(y / this.grid.cellSize);
@@ -34,8 +39,11 @@ export class InputHandler {
 
     handleMouseMove(event) {
         const rect = this.canvas.getBoundingClientRect();
-        const x = event.clientX - rect.left;
-        const y = event.clientY - rect.top;
+        // Account for canvas border and any scaling
+        const scaleX = this.canvas.width / rect.width;
+        const scaleY = this.canvas.height / rect.height;
+        const x = (event.clientX - rect.left) * scaleX;
+        const y = (event.clientY - rect.top) * scaleY;
 
         this.cursorX = Math.floor(x / this.grid.cellSize);
         this.cursorY = Math.floor(y / this.grid.cellSize);
@@ -82,9 +90,14 @@ export class InputHandler {
         if (this.selectedPiece === 'delete') {
             this.grid.clearCell(gridX, gridY);
         } else {
-            this.grid.setPiece(gridX, gridY, {
-                type: this.selectedPiece
-            });
+            // Get the piece definition with connections
+            const pieceDefinition = RoadPieces[this.selectedPiece];
+            if (pieceDefinition) {
+                this.grid.setPiece(gridX, gridY, {
+                    type: this.selectedPiece,
+                    connections: pieceDefinition.connections
+                });
+            }
         }
 
         if (this.onPiecePlaced) {
