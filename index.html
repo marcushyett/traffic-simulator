@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traffic Sim - Road Network Optimizer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="game-container">
+        <!-- Header -->
+        <header>
+            <h1>TRAFFIC SIM</h1>
+            <div id="controls">
+                <button id="theme-toggle" title="Toggle Dark/Light Mode">◐</button>
+                <button id="play-button" title="Start Simulation" disabled>▶</button>
+                <button id="reset-button" title="Reset Level">⟲</button>
+            </div>
+        </header>
+
+        <!-- Game Info -->
+        <div id="game-info">
+            <div class="info-panel">
+                <span>Level: <span id="current-level">1</span></span>
+                <span>Score: <span id="current-score">0</span></span>
+                <span>Target: <span id="target-score">0</span></span>
+                <span id="connection-status">Connect all roads to start</span>
+            </div>
+        </div>
+
+        <!-- Road Piece Selector -->
+        <div id="piece-selector">
+            <div class="piece-item" data-piece="straight-h" title="Straight (Horizontal)">━</div>
+            <div class="piece-item" data-piece="straight-v" title="Straight (Vertical)">┃</div>
+            <div class="piece-item" data-piece="corner-ne" title="Corner (NE)">┗</div>
+            <div class="piece-item" data-piece="corner-nw" title="Corner (NW)">┛</div>
+            <div class="piece-item" data-piece="corner-se" title="Corner (SE)">┏</div>
+            <div class="piece-item" data-piece="corner-sw" title="Corner (SW)">┓</div>
+            <div class="piece-item" data-piece="junction" title="4-Way Junction">╋</div>
+            <div class="piece-item" data-piece="roundabout" title="Roundabout">◎</div>
+            <div class="piece-item" data-piece="delete" title="Delete (X)">✕</div>
+        </div>
+
+        <!-- Canvas -->
+        <canvas id="game-canvas"></canvas>
+
+        <!-- Instructions -->
+        <div id="instructions">
+            <p><strong>Controls:</strong> Click tiles to place roads | Arrow keys to navigate | Space to place | X to delete | Click Play when ready</p>
+        </div>
+    </div>
+
+    <!-- Load modules -->
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>

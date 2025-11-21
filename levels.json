@@ -1,0 +1,46 @@
+{
+  "levels": [
+    {
+      "id": 1,
+      "name": "Simple Connection",
+      "description": "Connect two roads",
+      "gridWidth": 15,
+      "gridHeight": 10,
+      "targetScore": 100,
+      "roadEnds": [
+        { "x": 0, "y": 5, "direction": "east", "type": "entry" },
+        { "x": 14, "y": 5, "direction": "west", "type": "exit" }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Four Way Split",
+      "description": "Connect four roads efficiently",
+      "gridWidth": 18,
+      "gridHeight": 12,
+      "targetScore": 200,
+      "roadEnds": [
+        { "x": 0, "y": 6, "direction": "east", "type": "entry" },
+        { "x": 17, "y": 6, "direction": "west", "type": "exit" },
+        { "x": 9, "y": 0, "direction": "south", "type": "entry" },
+        { "x": 9, "y": 11, "direction": "north", "type": "exit" }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Complex Network",
+      "description": "Handle multiple entry and exit points",
+      "gridWidth": 20,
+      "gridHeight": 15,
+      "targetScore": 350,
+      "roadEnds": [
+        { "x": 0, "y": 5, "direction": "east", "type": "entry" },
+        { "x": 0, "y": 10, "direction": "east", "type": "entry" },
+        { "x": 19, "y": 5, "direction": "west", "type": "exit" },
+        { "x": 19, "y": 10, "direction": "west", "type": "exit" },
+        { "x": 10, "y": 0, "direction": "south", "type": "entry" },
+        { "x": 10, "y": 14, "direction": "north", "type": "exit" }
+      ]
+    }
+  ]
+}
